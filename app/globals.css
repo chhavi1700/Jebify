@@ -1,4 +1,3 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -78,14 +77,15 @@ html {
 
 @layer utilities {
   .gradient {
-    @apply bg-gradient-to-br from-blue-600 to-purple-600;
+    @apply bg-gradient-to-r from-indigo-800 to-emerald-500;
   }
+
   .gradient-title {
     @apply gradient font-extrabold tracking-tighter pr-2 pb-2 text-transparent bg-clip-text;
   }
 }
 
-.hero-image-wrapper{
+.hero-image-wrapper {
   perspective: 1000px;
 }
 
@@ -98,4 +98,22 @@ html {
 
 .hero-image.scrolled {
   transform: rotateX(0deg) scale(1) translateY(40px);
+}
+
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Add this class */
+.animate-gradient {
+  background-size: 200% 200%;
+  animation: gradientMove 3s ease infinite;
 }
